@@ -43,15 +43,25 @@ const Main = () => {
         setStyle({ backgroundColor:'#F7C042' })
     },[word])
 
+    const Capitalize = (Sentence) => {
+        const words = Sentence.split(" ");
+        for(var i=0; i<words.length; i++){
+            words[i] = words[i].charAt(0).toUpperCase() + words[i].slice(1);
+        }
+        return words.join(" ");
+    }
+    
     const onKeyDownHandler = (e) =>{
         if(e.key==='Enter'){
             e.preventDefault();
-            setWord(Inputval.current.value)
+            const typeVal = Inputval.current.value; 
+            setWord(Capitalize(typeVal))
         }
     }
     const onSubmitHandler = (e) =>{
         e.preventDefault();
-        setWord(Inputval.current.value)
+        const typeVal = Inputval.current.value; 
+        setWord(Capitalize(typeVal))
     }
 
     const convertToHour = (olddate) =>{
